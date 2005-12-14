@@ -1,12 +1,12 @@
 Summary:	Image blending with multiresolution splines
 Summary(pl):	£±czenie zdjêæ przy u¿yciu splajnów wielokrotnej rozdzielczo¶ci
 Name:		enblend
-Version:	2.4
+Version:	2.5
 Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
-# Source0-md5:	478fa9d467eea4335782464660aca682
+# Source0-md5:	d760e27fa1fa0395c07cc9d1bb1ea3cc
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	boost-devel
 BuildRequires:	boost-static_assert-devel
