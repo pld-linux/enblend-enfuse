@@ -1,17 +1,23 @@
+# NOTE: g++ eats 400+MB of memory
 Summary:	Image blending with multiresolution splines
 Summary(pl):	£±czenie zdjêæ przy u¿yciu splajnów wielokrotnej rozdzielczo¶ci
 Name:		enblend
-Version:	2.5
+Version:	3.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
-# Source0-md5:	d760e27fa1fa0395c07cc9d1bb1ea3cc
+# Source0-md5:	f80a12ff91a6122c5ea0d102443929da
 URL:		http://enblend.sourceforge.net/
+BuildRequires:	OpenGL-GLU-devel
+BuildRequires:	OpenGL-glut-devel
 BuildRequires:	boost-devel
 BuildRequires:	boost-static_assert-devel
+BuildRequires:	glew-devel
+BuildRequires:	lcms-devel
 BuildRequires:	libstdc++-devel >= 5:3.4
 BuildRequires:	libtiff-devel
+BuildRequires:	libxmi-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
