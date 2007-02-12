@@ -1,6 +1,6 @@
 # NOTE: g++ eats 400+MB of memory
 Summary:	Image blending with multiresolution splines
-Summary(pl.UTF-8):   Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
+Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend
 Version:	3.0
 Release:	1
