@@ -1,6 +1,6 @@
 # NOTE: g++ eats 400+MB of memory
 Summary:	Image blending with multiresolution splines
-Summary(pl):	£±czenie zdjêæ przy u¿yciu splajnów wielokrotnej rozdzielczo¶ci
+Summary(pl.UTF-8):   ÅÄ…czenie zdjÄ™Ä‡ przy uÅ¼yciu splajnÃ³w wielokrotnej rozdzielczoÅ›ci
 Name:		enblend
 Version:	3.0
 Release:	1
@@ -27,12 +27,12 @@ that the seam between the images is invisible, or at least very
 difficult to see. Enblend does not line up the images for you. Use a
 tool like Hugin to do that.
 
-%description -l pl
-Enblend to narzêdzie do ³±czenia zdjêæ. Po przekazaniu zbioru zdjêæ
-nachodz±cych na siebie w jaki¶ nieregularny sposób Enblend nak³ada je
-w taki sposób, ¿e po³±czenia miêdzy zdjêciami s± niewidoczne, albo
-przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje
-zdjêæ - do tego mo¿na u¿yæ narzêdzia takiego jak Hugin.
+%description -l pl.UTF-8
+Enblend to narzÄ™dzie do Å‚Ä…czenia zdjÄ™Ä‡. Po przekazaniu zbioru zdjÄ™Ä‡
+nachodzÄ…cych na siebie w jakiÅ› nieregularny sposÃ³b Enblend nakÅ‚ada je
+w taki sposÃ³b, Å¼e poÅ‚Ä…czenia miÄ™dzy zdjÄ™ciami sÄ… niewidoczne, albo
+przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrÃ³wnuje
+zdjÄ™Ä‡ - do tego moÅ¼na uÅ¼yÄ‡ narzÄ™dzia takiego jak Hugin.
 
 %prep
 %setup -q
