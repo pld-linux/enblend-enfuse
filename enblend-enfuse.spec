@@ -8,6 +8,7 @@ License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
 # Source0-md5:	f80a12ff91a6122c5ea0d102443929da
+Patch0:		%{name}-x86_64.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
@@ -36,6 +37,7 @@ zdjęć - do tego można użyć narzędzia takiego jak Hugin.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
