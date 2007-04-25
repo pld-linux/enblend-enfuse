@@ -1,0 +1,12 @@
+diff -urN enblend-3.0/src/anneal.h enblend-3.0.new/src/anneal.h
+--- enblend-3.0/src/anneal.h	2004-11-21 10:23:08.000000000 +0100
++++ enblend-3.0.new/src/anneal.h	2007-04-25 17:06:23.679674384 +0200
+@@ -678,7 +678,7 @@
+ 
+             localK = stateSpace->size();
+             if (localK < 2) convergedPoints[index] = true;
+-            kMax = std::max(kMax, stateProbabilities->size());
++            kMax = std::max((size_t)kMax, stateProbabilities->size());
+ 
+         }
+ 
