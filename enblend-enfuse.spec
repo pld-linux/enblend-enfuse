@@ -12,8 +12,7 @@ Patch0:		%{name}-x86_64.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
-BuildRequires:	boost-devel
-BuildRequires:	boost-static_assert-devel
+BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	glew-devel
 BuildRequires:	lcms-devel
 BuildRequires:	libstdc++-devel >= 5:3.4
