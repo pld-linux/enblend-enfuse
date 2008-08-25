@@ -1,15 +1,18 @@
 # NOTE: g++ eats 400+MB of memory
+%define cvs 20080824
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend
-Version:	3.0
-Release:	2
+Version:	3.1
+Release:	0.%{cvs}.1
 License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
-# Source0-md5:	f80a12ff91a6122c5ea0d102443929da
-Patch0:		%{name}-x86_64.patch
+Source0:	%{name}-%{version}-cvs%{cvs}.tar.bz2
+# Source0-md5:	5dea611cbd69a9ae88b1552b894ba48c
+Patch0:		%{name}-link.patch
 URL:		http://enblend.sourceforge.net/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	boost-devel >= 1.35.0
@@ -35,10 +38,14 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje
 zdjęć - do tego można użyć narzędzia takiego jak Hugin.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
 
 %build
+%{__aclocal} -I m4
+%{__autoheader}
+%{__automake}
+%{__autoconf}
 %configure
 %{__make}
 
@@ -55,4 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO VIGRA_LICENSE
 %attr(755,root,root) %{_bindir}/enblend
+%attr(755,root,root) %{_bindir}/enfuse
 %{_mandir}/man1/enblend.1*
+%{_mandir}/man1/enfuse.1*
