@@ -1,0 +1,12 @@
+diff -Nur enblend.orig/configure.in enblend.asneeded/configure.in
+--- enblend.orig/configure.in	2008-02-07 23:44:53.000000000 -0700
++++ enblend.asneeded/configure.in	2008-08-24 16:59:42.000000000 -0600
+@@ -54,7 +54,7 @@
+ fi
+ 
+ 
+-AC_CHECK_LIB(GLEW,glewInit,,AC_MSG_WARN([GLEW not found. Disabling GPU mode.]),[])
++AC_CHECK_LIB(GLEW,glewInit,,AC_MSG_WARN([GLEW not found. Disabling GPU mode.]),[-lglut])
+ #AC_CHECK_LIB(sh,main,,AC_MSG_WARN([libsh is required to compile enblend.]),[])
+ #AC_CHECK_LIB(brook,main,,AC_MSG_WARN([BrookGPU runtime libraries are required to compile enblend.]),[-logl -lcpu -lgpu])
+ 
