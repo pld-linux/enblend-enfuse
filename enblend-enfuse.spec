@@ -1,26 +1,32 @@
-# NOTE: g++ eats 400+MB of memory
-%define cvs 20080824
+# NOTE: g++ eats 600+MB of memory
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
-Name:		enblend
-Version:	3.1
-Release:	0.%{cvs}.1
+Name:		enblend-enfuse
+Version:	3.2
+Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	%{name}-%{version}-cvs%{cvs}.tar.bz2
-# Source0-md5:	5dea611cbd69a9ae88b1552b894ba48c
-Patch0:		%{name}-link.patch
+Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
+# Source0-md5:	9b6ebaf672f5103c633a53c9723d99c3
+Patch0:		%{name}-opt.patch
 URL:		http://enblend.sourceforge.net/
-BuildRequires:	autoconf
-BuildRequires:	automake
+BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	glew-devel
 BuildRequires:	lcms-devel
+BuildRequires:	libjpeg-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel >= 5:3.4
 BuildRequires:	libtiff-devel
 BuildRequires:	libxmi-devel
+BuildRequires:	pkgconfig
+BuildRequires:	zlib-devel
+Provides:	enblend = %{version}
+Obsoletes:	enblend
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -38,7 +44,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje
 zdjęć - do tego można użyć narzędzia takiego jak Hugin.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 
 %build
@@ -65,3 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/enfuse
 %{_mandir}/man1/enblend.1*
 %{_mandir}/man1/enfuse.1*
+%{_infodir}/enblend.info*
+%{_infodir}/enfuse.info*
+%{_infodir}/enfuse-focus-stacking.info*
