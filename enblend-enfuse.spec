@@ -17,6 +17,7 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.35.0
 BuildRequires:	glew-devel
+BuildRequires:	help2man
 BuildRequires:	lcms-devel
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
@@ -40,8 +41,8 @@ tool like Hugin to do that.
 Enblend to narzędzie do łączenia zdjęć. Po przekazaniu zbioru zdjęć
 nachodzących na siebie w jakiś nieregularny sposób Enblend nakłada je
 w taki sposób, że połączenia między zdjęciami są niewidoczne, albo
-przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje
-zdjęć - do tego można użyć narzędzia takiego jak Hugin.
+przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
+- do tego można użyć narzędzia takiego jak Hugin.
 
 %prep
 %setup -q -n %{name}-%{version}-753b534c819d
