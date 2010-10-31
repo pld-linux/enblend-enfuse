@@ -6,9 +6,10 @@ Version:	4.0
 Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/enblend/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
 # Source0-md5:	2e7c950061e0085fd75d94576130250f
 Patch0:		%{name}-libpng.patch
+Patch1:		%{name}-info.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -25,6 +26,7 @@ BuildRequires:	libstdc++-devel >= 5:3.4
 BuildRequires:	libtiff-devel
 BuildRequires:	libxmi-devel
 BuildRequires:	pkgconfig
+BuildRequires:	texinfo
 BuildRequires:	zlib-devel
 Provides:	enblend = %{version}
 Obsoletes:	enblend
@@ -47,6 +49,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %prep
 %setup -q -n %{name}-%{version}-753b534c819d
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__aclocal} -I m4
@@ -65,6 +68,12 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/postshell
+-/usr/sbin/fix-info-dir -c %{_infodir}
+
+%postun	-p /sbin/postshell
+-/usr/sbin/fix-info-dir -c %{_infodir}
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README VIGRA_LICENSE
@@ -72,3 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/enfuse
 %{_mandir}/man1/enblend.1*
 %{_mandir}/man1/enfuse.1*
+%{_infodir}/enblend.info*
+%{_infodir}/enfuse.info*

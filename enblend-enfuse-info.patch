@@ -1,0 +1,30 @@
+--- enblend-enfuse-4.0-753b534c819d/doc/enblend.texi.orig	2009-12-21 08:22:30.000000000 +0100
++++ enblend-enfuse-4.0-753b534c819d/doc/enblend.texi	2010-10-31 13:27:08.515099937 +0100
+@@ -28,10 +28,10 @@
+ @c Categorization for the GNU Info System
+ @c
+ 
+-@dircategory Individual utilities
++@dircategory Graphics Utilities:
+ 
+ @direntry
+-* enblend: (enblend).                   Blend images using a multiresolution spline.
++* enblend: (enblend).			Blend images using a multiresolution spline
+ @end direntry
+ 
+ 
+--- enblend-enfuse-4.0-753b534c819d/doc/enfuse.texi.orig	2009-12-21 08:22:30.000000000 +0100
++++ enblend-enfuse-4.0-753b534c819d/doc/enfuse.texi	2010-10-31 13:27:25.587104966 +0100
+@@ -28,10 +28,10 @@
+ @c Categorization for the GNU Info System
+ @c
+ 
+-@dircategory Individual utilities
++@dircategory Graphics Utilities:
+ 
+ @direntry
+-* enfuse: (enfuse).                     Fuse images using a multiresolution spline.
++* enfuse: (enfuse).			Fuse images using a multiresolution spline
+ @end direntry
+ 
+ 
