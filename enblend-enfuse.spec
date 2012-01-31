@@ -27,6 +27,7 @@ BuildRequires:	libtiff-devel
 BuildRequires:	libxmi-devel
 BuildRequires:	pkgconfig
 BuildRequires:	texinfo
+BuildRequires:	transfig
 BuildRequires:	zlib-devel
 Provides:	enblend = %{version}
 Obsoletes:	enblend
