@@ -10,6 +10,7 @@ Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
 # Source0-md5:	2e7c950061e0085fd75d94576130250f
 Patch0:		%{name}-libpng.patch
 Patch1:		%{name}-info.patch
+Patch2:		%{name}-libpng15.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -51,6 +52,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %setup -q -n %{name}-%{version}-753b534c819d
 %patch0 -p1
 %patch1 -p1
+%patch2 -p0
 
 %build
 %{__aclocal} -I m4
