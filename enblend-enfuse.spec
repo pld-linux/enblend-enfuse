@@ -1,4 +1,8 @@
-# NOTE: g++ eats 600+MB of memory
+# NOTE: g++ eats 700+MB of memory
+#
+# Conditional build:
+%bcond_with	gomp	# OpenMP support (incompatible with image-cache)
+#
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
@@ -16,9 +20,12 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.35.0
+%{?with_gomp:BuildRequires:	gcc-c++ >= 6:4.2}
 BuildRequires:	glew-devel
+BuildRequires:	gsl-devel
 BuildRequires:	help2man
-BuildRequires:	lcms-devel
+BuildRequires:	lcms2-devel >= 2
+%{?with_gomp:BuildRequires:	libgomp-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel >= 5:3.4
@@ -27,7 +34,9 @@ BuildRequires:	libxmi-devel
 BuildRequires:	pkgconfig
 BuildRequires:	texinfo
 BuildRequires:	transfig
+BuildRequires:	vigra-devel >= 1.8
 BuildRequires:	zlib-devel
+Requires:	vigra >= 1.8
 Provides:	enblend = %{version}
 Obsoletes:	enblend
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -55,7 +64,8 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %{__autoheader}
 %{__automake}
 %{__autoconf}
-%configure
+%configure \
+	%{?with_gomp:--enable-openmp --disable-image-cache}
 %{__make}
 
 %install
