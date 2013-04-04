@@ -2,15 +2,13 @@
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
-Version:	4.0
-Release:	2
+Version:	4.1.1
+Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
-# Source0-md5:	2e7c950061e0085fd75d94576130250f
-Patch0:		%{name}-libpng.patch
-Patch1:		%{name}-info.patch
-Patch2:		%{name}-libpng15.patch
+# Source0-md5:	9bc34f423f3bee35150ab593211da4a2
+Patch0:		%{name}-info.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -49,10 +47,8 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 - do tego można użyć narzędzia takiego jak Hugin.
 
 %prep
-%setup -q -n %{name}-%{version}-753b534c819d
+%setup -q
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
 
 %build
 %{__aclocal} -I m4
@@ -79,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README VIGRA_LICENSE
+%doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/enblend
 %attr(755,root,root) %{_bindir}/enfuse
 %{_mandir}/man1/enblend.1*
