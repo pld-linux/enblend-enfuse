@@ -13,6 +13,7 @@ Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
 # Source0-md5:	9bc34f423f3bee35150ab593211da4a2
 Patch0:		%{name}-info.patch
+Patch1:		%{name}-texinfo.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -58,6 +59,9 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+%{__sed} -i -e 's/src:://g;s/CFG::/CFG_/g' doc/*.texi doc/define2set.pl configure.in
 
 %build
 %{__aclocal} -I m4
