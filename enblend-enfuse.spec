@@ -1,7 +1,7 @@
 # NOTE: g++ eats 700+MB of memory
 #
 # Conditional build:
-%bcond_with	gomp	# OpenMP support (incompatible with image-cache)
+%bcond_with	openmp	# OpenMP support (incompatible with image-cache)
 #
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
@@ -21,13 +21,13 @@ BuildRequires:	OpenGL-glut-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	boost-devel >= 1.35.0
-%{?with_gomp:BuildRequires:	gcc-c++ >= 6:4.2}
+%{?with_openmp:BuildRequires:	gcc-c++ >= 6:4.2}
 BuildRequires:	glew-devel
 BuildRequires:	gsl-devel
 BuildRequires:	help2man
 BuildRequires:	gnuplot
 BuildRequires:	lcms2-devel >= 2
-%{?with_gomp:BuildRequires:	libgomp-devel}
+%{?with_openmp:BuildRequires:	libgomp-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libstdc++-devel >= 5:3.4
@@ -71,7 +71,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %{__automake}
 %{__autoconf}
 %configure \
-	%{?with_gomp:--enable-openmp --disable-image-cache}
+	%{?with_openmp:--enable-openmp --disable-image-cache}
 %{__make}
 
 %install
