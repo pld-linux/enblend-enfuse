@@ -7,7 +7,7 @@ Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
 Version:	4.1.2
-Release:	13
+Release:	14
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
