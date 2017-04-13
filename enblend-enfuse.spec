@@ -6,14 +6,12 @@
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
-Version:	4.1.2
-Release:	14
+Version:	4.2
+Release:	1
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
-# Source0-md5:	5b609ddfc9fae5fadf65d29c08e0340e
-Patch0:		%{name}-info.patch
-Patch1:		%{name}-texinfo.patch
+# Source0-md5:	e26751f393862cecfd1a113003787001
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -60,16 +58,8 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-
-%{__sed} -i -e 's/src:://g;s/CFG::/CFG_/g' doc/*.texi doc/define2set.pl configure.in
 
 %build
-%{__aclocal} -I m4
-%{__autoheader}
-%{__automake}
-%{__autoconf}
 %configure \
 	%{?with_openmp:--enable-openmp --disable-image-cache}
 %{__make}
@@ -96,5 +86,3 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/enfuse
 %{_mandir}/man1/enblend.1*
 %{_mandir}/man1/enfuse.1*
-%{_infodir}/enblend.info*
-%{_infodir}/enfuse.info*
