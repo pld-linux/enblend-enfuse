@@ -1,13 +1,14 @@
 # NOTE: g++ eats 700+MB of memory
 #
 # Conditional build:
-%bcond_with	openmp	# OpenMP support (incompatible with image-cache)
+%bcond_with	openmp		# OpenMP support (incompatible with image-cache)
+%bcond_without	tcmalloc	# use of Google TCMalloc library
 #
 Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
 Version:	4.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
@@ -18,19 +19,21 @@ BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	boost-devel >= 1.35.0
+BuildRequires:	boost-devel >= 1.55
 %{?with_openmp:BuildRequires:	gcc-c++ >= 6:4.2}
 BuildRequires:	glew-devel
+BuildRequires:	gnuplot
 BuildRequires:	gsl-devel
 BuildRequires:	help2man
-BuildRequires:	gnuplot
 BuildRequires:	lcms2-devel >= 2
 %{?with_openmp:BuildRequires:	libgomp-devel}
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
-BuildRequires:	libstdc++-devel >= 5:3.4
+BuildRequires:	libstdc++-devel >= 5:4.3
+%{?with_tcmalloc:BuildRequires:	libtcmalloc-devel}
 BuildRequires:	libtiff-devel
-BuildRequires:	libxmi-devel
+BuildRequires:	perl-TimeDate
+BuildRequires:	perl-base
 BuildRequires:	pkgconfig
 BuildRequires:	texinfo
 BuildRequires:	tidy
@@ -62,6 +65,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 %build
 %configure \
 	%{?with_openmp:--enable-openmp --disable-image-cache}
+	%{!?with_tcmalloc:--without-tcmalloc}
 %{__make}
 
 %install
