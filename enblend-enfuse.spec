@@ -8,11 +8,12 @@ Summary:	Image blending with multiresolution splines
 Summary(pl.UTF-8):	Łączenie zdjęć przy użyciu splajnów wielokrotnej rozdzielczości
 Name:		enblend-enfuse
 Version:	4.2
-Release:	3
+Release:	4
 License:	GPL v2+
 Group:		Applications/Graphics
 Source0:	http://downloads.sourceforge.net/enblend/%{name}-%{version}.tar.gz
 # Source0-md5:	e26751f393862cecfd1a113003787001
+Patch0:		gcc11.patch
 URL:		http://enblend.sourceforge.net/
 BuildRequires:	OpenEXR-devel >= 1.0
 BuildRequires:	OpenGL-GLU-devel
@@ -61,8 +62,10 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+export CXXFLAGS="%{rpmcxxflags} -std=gnu++14"
 %configure \
 	%{?with_openmp:--enable-openmp --disable-image-cache}
 	%{!?with_tcmalloc:--without-tcmalloc}
