@@ -62,7 +62,7 @@ przynajmniej bardzo trudne do zobaczenia. Enblend nie wyrównuje zdjęć
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 export CXXFLAGS="%{rpmcxxflags} -std=gnu++14"
